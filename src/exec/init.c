@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:07:06 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 17:44:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:10:47 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static void	init_data(t_data *fractal)
 {
 	fractal->max_iter = 100;
-	fractal->zoom = 1.0;
 	fractal->color = 0;
+	fractal->esc_value = 4;
 }
 
 void	init_fractal(t_data *fractal)
@@ -42,24 +42,4 @@ void	init_fractal(t_data *fractal)
 						&fractal->img.endian);
 	init_data(fractal);
 	init_events(fractal);
-}
-
-void	draw(t_data *fractal)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < WIN_HEIGHT)
-	{
-		x = 0;
-		while (x < WIN_WIDTH)
-		{
-			set_pixels(fractal, x, y);
-			x++;
-		}
-		y++;
-	}
-	mlx_put_image_to_window(fractal->mlx, fractal->win, 
-		fractal->img.img_ptr, 0, 0);
 }

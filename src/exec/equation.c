@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:32:04 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 17:43:14 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:08:34 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ t_complex	sum(t_complex z, t_complex c)
 {
 	t_complex	res;
 
-	res.real = z.real + c.real;
-	res.imagin = z.imagin + c.imagin;
+	res.r = z.r + c.r;
+	res.i = z.i + c.i;
 	return (res);
 }
 
@@ -25,9 +25,9 @@ t_complex	z_square(t_complex z)
 {
 	t_complex	res;
 	
-	res.real = (z.real * z.real);
-	res.real -= (z.imagin * z.imagin);
-	res.imagin = 2 * z.real * z.imagin;
+	res.r = (z.r * z.r);
+	res.r -= (z.i * z.i);
+	res.i = 2 * z.r * z.i;
 	return (res);
 }
 

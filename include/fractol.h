@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:15:48 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 17:44:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:13:54 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ typedef	struct	s_img
 
 typedef struct	s_complex
 {
-	double	real;
-	double	imagin;
+	double	r;
+	double	i;
 }				t_complex;
 
 typedef struct	s_view
@@ -70,6 +70,7 @@ typedef struct	s_view
 	double	x_max;
 	double	y_min;
 	double	y_max;
+	double	zoom;
 }				t_view;
 
 typedef	struct	s_data
@@ -78,19 +79,19 @@ typedef	struct	s_data
 	void	*win;
 	t_img	img;
 	char	*name;
+	t_view	map;
 	double	max_iter;
-	double	zoom;
-	t_view	view;
 	double	julia_r;
 	double	julia_i;
 	int		color;
+	int		esc_value;
 }				t_data;
 
 /******************************************************************************\
  * MANDATORY
 \******************************************************************************/
 
-double		atod(char *s);
+double		atodbl(char *s);
 bool		global_check_successful(char **argv);
 void		*memset4struct(void *s, int c, size_t n);
 
@@ -103,6 +104,7 @@ void		errcontext_exit(void);
 void		init_events(t_data *fractal);
 void		set_pixels(t_data *fractal, double x, double y);
 double		map(double n, double new_min, double new_max, double old_max);
+void		view(t_view *v);
 
 void		init_fractal(t_data *fractal);
 

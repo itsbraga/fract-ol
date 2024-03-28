@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:02:44 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 16:49:00 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/28 18:12:52 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,19 @@ static int key_hook(int keycode, t_data *fractal)
 
 static int mouse_hook(int mousecode, int x, int y, t_data *fractal)
 {
+    t_view  v;
+    
     (void)x;
     (void)y;
     if (mousecode == MOUSE_WHEEL_UP)
     {
         ft_printf(BOLD BLUE "Scroll up (+):\tzoom\n" RESET);
-        fractal->zoom -= 0.03;
+        v.zoom -= 0.03;
     }
     else if (mousecode == MOUSE_WHEEL_DOWN)
     {
         ft_printf(BOLD PINK "Scroll down (-):\tunzoom\n" RESET);
-        fractal->zoom += 0.03;
+        v.zoom += 0.03;
     }
     draw(fractal);
     return (EXIT_SUCCESS);
