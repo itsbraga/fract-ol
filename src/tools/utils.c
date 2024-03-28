@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_n_color.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 22:38:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/03/23 21:41:28 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/03/28 19:57:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 void	*memset4struct(void *s, int c, size_t n)
 {
 	size_t			i;
-	unsigned char	*fractal;
+	unsigned char	*f;
 
 	i = 0;
-	fractal = s;
+	f = s;
 	while (i < n)
 	{
-		*(fractal + i) = c;
+		*(f + i) = c;
 		i++;
 	}
-	return (fractal);
+	return (f);
 }
 
 void	rainbow_txt(const char *str)

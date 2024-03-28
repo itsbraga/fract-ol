@@ -57,6 +57,9 @@ CONFIGS_FILES	=	mlx_exit.c mlx_events.c
 EXEC_DIR		=	exec/
 EXEC_FILES		=	equation.c fractal_sets.c init.c
 
+SETS_DIR		=	sets/
+SETS_FILES		=	mandelbrot.c julia.c
+
 PARSING_DIR		=	parsing/
 PARSING_FILES	=	check_args.c parse_args.c
 
@@ -64,7 +67,7 @@ TOOLS_DIR		=	tools/
 TOOLS_FILES		=	pixels.c help.c errors.c utils.c
 
 BONUS_DIR		=	bonus/
-BONUS_FILES		=	
+BONUS_FILES		=	new_events.c
 
 
 #################################################################################
@@ -79,6 +82,7 @@ SRC_DIR		=	src/
 
 SRCS		=	$(addprefix $(CONFIGS_DIR), $(CONFIGS_FILES)) \
 				$(addprefix $(EXEC_DIR), $(EXEC_FILES)) \
+				$(addprefix $(SETS_DIR), $(SETS_FILES)) \
 				$(addprefix $(PARSING_DIR), $(PARSING_FILES)) \
 				$(addprefix $(TOOLS_DIR), $(TOOLS_FILES)) \
 				main.c
@@ -88,7 +92,7 @@ OBJ_DIR		=	obj/
 OBJ_NAMES	=	$(SRCS:.c=.o)
 
 OBJ_DIRS	=	$(addprefix $(OBJ_DIR), $(CONFIGS_DIR), $(EXEC_DIR), \
-							$(PARSING_DIR), $(TOOLS_DIR))
+							$(SETS_DIR), $(PARSING_DIR), $(TOOLS_DIR))
 
 OBJS		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 
@@ -99,6 +103,7 @@ B_SRC_DIR	=	src/
 
 B_SRCS		=	$(addprefix $(CONFIGS_DIR), $(CONFIGS_FILES)) \
 				$(addprefix $(EXEC_DIR), $(EXEC_FILES)) \
+				$(addprefix $(SETS_DIR), $(SETS_FILES)) \
 				$(addprefix $(PARSING_DIR), $(PARSING_FILES)) \
 				$(addprefix $(TOOLS_DIR), $(TOOLS_FILES)) \
 				$(addprefix $(BONUS_DIR), $(BONUS_FILES)) \
@@ -109,7 +114,8 @@ B_OBJ_DIR	=	obj/obj_bonus/
 B_OBJ_NAMES	=	$(B_SRCS:.c=.o)
 
 B_OBJ_DIRS	=	$(addprefix $(B_OBJ_DIR), $(CONFIGS_DIR), $(EXEC_DIR), \
-							$(PARSING_DIR), $(TOOLS_DIR), $(BONUS_DIR))
+							$(SETS_DIR), $(PARSING_DIR), $(TOOLS_DIR), \
+							$(BONUS_DIR))
 
 B_OBJS		=	$(addprefix $(B_OBJ_DIR), $(B_OBJ_NAMES))
 
@@ -123,7 +129,7 @@ B_OBJS		=	$(addprefix $(B_OBJ_DIR), $(B_OBJ_NAMES))
 DEP_NAMES	=	$(SRCS:.c=.d)
 
 DEP_DIRS	=	$(addprefix $(OBJ_DIR), $(CONFIGS_DIR), $(EXEC_DIR), \
-							$(PARSING_DIR), $(TOOLS_DIR))
+							$(SETS_DIR), $(PARSING_DIR), $(TOOLS_DIR))
 
 DEPS		=	$(addprefix $(OBJ_DIR), $(DEP_NAMES))
 
@@ -133,7 +139,8 @@ DEPS		=	$(addprefix $(OBJ_DIR), $(DEP_NAMES))
 B_DEP_NAMES	=	$(B_SRCS:.c=.d)
 
 B_DEP_DIRS	=	$(addprefix $(OBJ_DIR), $(CONFIGS_DIR), $(EXEC_DIR), \
-							$(PARSING_DIR), $(TOOLS_DIR), $(BONUS_DIR))
+							$(SETS_DIR), $(PARSING_DIR), $(TOOLS_DIR), \
+							$(BONUS_DIR))
 
 B_DEPS		=	$(addprefix $(B_OBJ_DIR), $(B_DEP_NAMES))
 

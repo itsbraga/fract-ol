@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:15:48 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 18:13:54 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/28 21:42:14 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,31 @@ typedef struct	s_complex
 	double	i;
 }				t_complex;
 
+/*	x represents the real values (complex)	
+	y represents the imaginary ones			
+	
+	They are the image pixel coordinates in the range of -2 ; 2
+*/
 typedef struct	s_view
 {
-	double	x_min;
-	double	x_max;
-	double	y_min;
-	double	y_max;
+	double	xmin;
+	double	xmax;
+	double	ymin;
+	double	ymax;
 	double	zoom;
 }				t_view;
 
 typedef	struct	s_data
 {
-	void	*mlx;
-	void	*win;
-	t_img	img;
-	char	*name;
-	t_view	map;
-	double	max_iter;
-	double	julia_r;
-	double	julia_i;
-	int		color;
-	int		esc_value;
+	void		*mlx;
+	void		*win;
+	t_img		img;
+	char		*name;
+	t_view		idx;
+	double		max_it;
+	t_complex	julia_c;
+	int			color;
+	int			esc_value;
 }				t_data;
 
 /******************************************************************************\
@@ -98,31 +102,28 @@ void		*memset4struct(void *s, int c, size_t n);
 void		julia_examples(void);
 void		tutorial(void);
 void		help_menu(void);
-void		help_and_exit(void);
-void		errcontext_exit(void);
 
-void		init_events(t_data *fractal);
-void		set_pixels(t_data *fractal, double x, double y);
-double		map(double n, double new_min, double new_max, double old_max);
+int			esc_key_hook(int keycode, t_data *f);
+int			mouse_hook(int button, int x, int y, t_data *f);
+double		scale(double n, double new_min, double new_max, double old_max);
 void		view(t_view *v);
 
-void		init_fractal(t_data *fractal);
-
-void    	del_win(t_data *fractal);
-void    	del_img(t_data *fractal);
-int			clean(t_data *fractal);
+void    	del_win(t_data *f);
+void    	del_img(t_data *f);
+int			clean(t_data *f);
 
 t_complex	z_square(t_complex z);
 t_complex	sum(t_complex z, t_complex c);
 
-void		draw(t_data *fractal);
-void		mandelbrot(char **argv, t_data *fractal);
-void		julia(char **argv, t_data *fractal);
+void		init_data(t_data *f);
+void		draw(t_data *f);
+int			mandelbrot(char **argv, t_data *f, t_complex c);
+int			julia(char **argv, t_data *f, t_complex z);
 
 /******************************************************************************\
  * BONUS
 \******************************************************************************/
 
-
+int			keypress(int keycode, t_data *f);
 
 #endif

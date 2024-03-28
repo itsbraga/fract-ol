@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:32:04 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 18:08:34 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/28 20:04:27 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_complex	z_square(t_complex z)
  *	and new_max. This is useful for normalizing data or scaling values to fit
  *	a certain interval.
 */
-double	map(double n, double new_min, double new_max, double old_max)
+double	scale(double n, double new_min, double new_max, double old_max)
 {
 	return ((new_max - new_min) * n / old_max + new_min);
 }
