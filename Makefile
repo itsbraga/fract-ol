@@ -55,7 +55,7 @@ CONFIGS_DIR		=	configs/
 CONFIGS_FILES	=	mlx_exit.c mlx_events.c
 
 EXEC_DIR		=	exec/
-EXEC_FILES		=	equation.c fractal_sets.c init.c
+EXEC_FILES		=	equation.c init.c pixels.c
 
 SETS_DIR		=	sets/
 SETS_FILES		=	mandelbrot.c julia.c
@@ -64,10 +64,10 @@ PARSING_DIR		=	parsing/
 PARSING_FILES	=	check_args.c parse_args.c
 
 TOOLS_DIR		=	tools/
-TOOLS_FILES		=	pixels.c help.c errors.c utils.c
+TOOLS_FILES		=	help.c utils.c
 
 BONUS_DIR		=	bonus/
-BONUS_FILES		=	new_events.c
+BONUS_FILES		=	mlx_events2.c mlx_events3.c
 
 
 #################################################################################
@@ -173,7 +173,7 @@ $(NAME): $(OBJS)
 				touch .build; fi
 			@printf "$(RESET)$(shell bash rainbow.sh "[FRACT-OL Mandatory]"): "
 			@printf "$(RESET)$(BOLD)$(YELLOW)Compilation done!\n\n$(RESET)"
-			@$(CC) -O3 $(CFLAGS) $(OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -o $(NAME)
+			@$(CC) $(CFLAGS) $(OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -o $(NAME)
 #			@$(CC) -O3 $(CFLAGS) $(OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -L/usr/lib -o $(NAME)
 			@printf "$(RESET)$(PINK)You can now generate fractals. $(RESET)🌈\n\n"
 

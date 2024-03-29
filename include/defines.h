@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:11:51 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 17:40:01 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/30 00:36:13 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@
  * WINDOW
 \******************************************************************************/
 
-# define WIN_WIDTH 1520
-# define WIN_HEIGHT 1200
+// Dell
+// # define WIN_WIDTH 1000
+// # define WIN_HEIGHT 1000
+
+// iMac
+# define WIN_WIDTH 1300
+# define WIN_HEIGHT 1300
 
 /******************************************************************************\
  * NAVIGATION
@@ -54,6 +59,8 @@
 \******************************************************************************/
 
 void	rainbow_txt(const char *str);
+
+# define DEFAULT 0x38040E
 
 # define SALMON 0xFA8072
 # define ORANGE_RED 0xFF4500

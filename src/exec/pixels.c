@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:55:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/28 21:39:44 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/30 00:53:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
+static void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*buffer;
 
@@ -22,28 +22,19 @@ void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int *)buffer = color;
 }
 
-// changer scale pour view avec x & y + retirer x & y des params
-static void	create_cplan(t_data *f, t_complex *z, t_complex *c, double x, double y)
+static int	choice(t_data *f, int x, int y)
 {
-	t_view	v;
-	
-	if (!ft_strncmp(f->name, "julia", 5))
-	{
-		z->r = scale(x, f->idx.xmin, f->idx.xmax, WIN_WIDTH) * v.zoom;
-		z->i = scale(y, f->idx.ymax, f->idx.ymin, WIN_HEIGHT) * v.zoom;
-		c->r = f->julia_c.r;
-		c->i = f->julia_c.i;
-	}
-	else if (!ft_strncmp(f->name, "mandelbrot", 10))
-	{
-		z->r = 0.0;
-		z->i = 0.0;
-		c->r = scale(x, f->idx.xmin, f->idx.xmax, WIN_WIDTH) * v.zoom;
-		c->i = scale(y, f->idx.ymax, f->idx.ymin, WIN_HEIGHT) * v.zoom;
-	}
+	int	it;
+
+	it = 0;
+	if (!ft_strncmp(f->name, "mandelbrot", 10))
+		it = mandelbrot(f, x, y);
+	else if (!ft_strncmp(f->name, "julia", 5))
+		it = julia(f, x, y);
+	return (it);
 }
 
-void	draw(t_data *f)
+int	draw(t_data *f)
 {
 	int	it;
 	int	x;
@@ -51,16 +42,21 @@ void	draw(t_data *f)
 
 	it = 0;
 	y = 0;
-	// mlx_clear_window(f->mlx, f->win);
+	mlx_clear_window(f->mlx, f->win);
 	while (y < WIN_HEIGHT)
 	{
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			my_mlx_pixel_put(&f->img, x, y, f->color + (0x38040E * it));
+			it = choice(f, x, y);
+			if (it == f->max_it)
+				my_mlx_pixel_put(&f->img, x, y, 0x000000);
+			else
+				my_mlx_pixel_put(&f->img, x, y, (f->color * it));
 			x++;
 		}
 		y++;
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->img.img_ptr, 0, 0);
+	return (EXIT_SUCCESS);
 }
