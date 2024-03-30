@@ -6,21 +6,19 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:00:21 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 00:29:36 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:51:12 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-static int	mouse_hook2(int button, int x, int y, t_data *f)
+static int	mouse_hook2(int button, int x, int y, t_fractal *f)
 {
 	if (button == MOUSE_WHEEL_UP)
 	{
 		mouse_zoom(0.5, f);
 		y -= WIN_HEIGHT / 2;
 		x -= WIN_WIDTH / 2;
-		ft_printf("x = %d\n", x);
-		ft_printf("y = %d\n", y);
 		if (y < 0)
 			key_move(XK_Up, (double)y * -1 / WIN_HEIGHT, f);
 		else if (y > 0)
@@ -41,7 +39,7 @@ static int	mouse_hook2(int button, int x, int y, t_data *f)
 	return (EXIT_SUCCESS);
 }
 
-void    init_events2(t_data *f)
+void	init_events2(t_fractal *f)
 {
 	init_events(f);
 	mlx_key_hook(f->win, key_hook2, f);

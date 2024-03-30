@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 14:13:58 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/29 21:59:37 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:03:08 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-static double	handle_decimal(char *s, int i)
+static double	__handle_decimal(char *s, int i)
 {
 	double	decimal;
 	double	divisor;
@@ -53,6 +53,6 @@ double	atodbl(char *s)
 	}
 	if (s[i] == '.' || s[i] == ',')
 		i++;
-	decimal = handle_decimal(s, i);
+	decimal = __handle_decimal(s, i);
 	return (sign * (int_part + decimal));
 }

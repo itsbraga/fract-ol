@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:55:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 00:53:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/30 17:30:02 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-static void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
+static void	__my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*buffer;
 
@@ -22,19 +22,19 @@ static void    my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int *)buffer = color;
 }
 
-static int	choice(t_data *f, int x, int y)
+static int	__choice(t_fractal *f, int x, int y)
 {
 	int	it;
 
 	it = 0;
-	if (!ft_strncmp(f->name, "mandelbrot", 10))
+	if (f->type == Mandelbrot)
 		it = mandelbrot(f, x, y);
-	else if (!ft_strncmp(f->name, "julia", 5))
+	else if (f->type == Julia)
 		it = julia(f, x, y);
 	return (it);
 }
 
-int	draw(t_data *f)
+int	draw(t_fractal *f)
 {
 	int	it;
 	int	x;
@@ -48,11 +48,11 @@ int	draw(t_data *f)
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			it = choice(f, x, y);
+			it = __choice(f, x, y);
 			if (it == f->max_it)
-				my_mlx_pixel_put(&f->img, x, y, 0x000000);
+				__my_mlx_pixel_put(&f->img, x, y, 0x000000);
 			else
-				my_mlx_pixel_put(&f->img, x, y, (f->color * it));
+				__my_mlx_pixel_put(&f->img, x, y, (f->color * it));
 			x++;
 		}
 		y++;

@@ -6,20 +6,20 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:02:44 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 00:28:26 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:53:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-static int esc_key_hook(int keycode, t_data *f)
+static int	esc_key_hook(int keycode, t_fractal *f)
 {
-    if (keycode == XK_Escape)
-        clean(f);
-    return (EXIT_SUCCESS);
+	if (keycode == XK_Escape)
+		clean(f);
+	return (EXIT_SUCCESS);
 }
 
-void	mouse_zoom(double zmult, t_data *f)
+void	mouse_zoom(double zmult, t_fractal *f)
 {
 	t_complex	center;
 
@@ -31,10 +31,10 @@ void	mouse_zoom(double zmult, t_data *f)
 	f->idx.ymax = f->idx.ymin + zmult * center.i;
 }
 
-static int	mouse_hook(int button, int x, int y, t_data *f)
+static int	mouse_hook(int button, int x, int y, t_fractal *f)
 {
 	(void)x;
-    (void)y;
+	(void)y;
 	if (button == MOUSE_WHEEL_UP)
 		mouse_zoom(0.8, f);
 	else if (button == MOUSE_WHEEL_DOWN)
@@ -43,7 +43,7 @@ static int	mouse_hook(int button, int x, int y, t_data *f)
 	return (EXIT_SUCCESS);
 }
 
-void    init_events(t_data *f)
+void	init_events(t_fractal *f)
 {
 	mlx_key_hook(f->win, esc_key_hook, f);
 	mlx_mouse_hook(f->win, mouse_hook, f);

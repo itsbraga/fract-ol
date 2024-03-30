@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:50:28 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/29 17:06:53 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:26:53 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-static bool	is_only_double(char *argv)
+static bool	__is_only_double(char *argv)
 {
 	int		i;
 	bool	has_decimal;
@@ -25,7 +25,7 @@ static bool	is_only_double(char *argv)
 	{
 		if (argv[i] == '.' || argv[i] == ',')
 		{
-			if (has_decimal)
+			if (has_decimal == true)
 				return (false);
 			else
 				has_decimal = true;
@@ -35,9 +35,9 @@ static bool	is_only_double(char *argv)
 	return (true);
 }
 
-static bool	have_duplicate(char *argv)
+static bool	__have_duplicate(char *argv)
 {
-    int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -55,17 +55,18 @@ static bool	have_duplicate(char *argv)
 	return (false);
 }
 
-bool	global_check_successful(char **argv)
+bool	check_julia_args(char **argv)
 {
-	if (!is_only_double(argv[2]) || !is_only_double(argv[3]))
+	if (__is_only_double(argv[2]) == false
+		|| __is_only_double(argv[3]) == false)
 	{
-		write(STDERR_FILENO, "Error: Invalid argument. ", 25);
-		write(STDERR_FILENO, "Should be decimal.\n\n", 19);
-		ft_printf(BOLD EX_HEADER RESET EXAMPLE_MSG);
+		write(2, "Error: Invalid argument. ", 25);
+		write(2, "Should be decimal.\n\n", 19);
+		ft_putstr_fd(BOLD EX_HEADER RESET EXAMPLE_MSG, 1);
 		julia_examples();
 		return (false);
 	}
-	if (have_duplicate(argv[2]) || have_duplicate(argv[3]))
+	if (__have_duplicate(argv[2]) == true || __have_duplicate(argv[3]) == true)
 		return (write(2, "Error: Contains duplicates.\n", 6), false);
 	return (true);
 }
