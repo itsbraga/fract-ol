@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:55:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 17:30:02 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 21:55:43 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ static void	__my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int *)buffer = color;
 }
 
-static int	__choice(t_fractal *f, int x, int y)
+/*
+	Picks the correct fractal calculation function depending
+	on the choosen fractal set.
+*/
+static int	__choice(t_fractol *f, int x, int y)
 {
 	int	it;
 
@@ -31,10 +35,14 @@ static int	__choice(t_fractal *f, int x, int y)
 		it = mandelbrot(f, x, y);
 	else if (f->type == Julia)
 		it = julia(f, x, y);
+	else if (f->type == Burningship)
+		it = burningship(f, x, y);
+	else if (f->type == Mandelbox)
+		it = mandelbox(f, x, y);
 	return (it);
 }
 
-int	draw(t_fractal *f)
+int	draw(t_fractol *f)
 {
 	int	it;
 	int	x;

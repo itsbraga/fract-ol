@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:11:51 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 19:58:56 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:45:34 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@
 \******************************************************************************/
 
 // Dell
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 1000
-// # define WIN_WIDTH 800
-// # define WIN_HEIGHT 800
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 800
 
 // iMac
 // # define WIN_WIDTH 1300
@@ -33,29 +31,53 @@
 
 # define MOUSE_WHEEL_UP 4
 # define MOUSE_WHEEL_DOWN 5
+# define MUP_MSG "Scroll up:\tIncreasing the zoom (+)\n"
+# define MDOWN_MSG "Scroll down:\tDecreasing the zoom (-)\n"
+
+# define A 97
+# define W 119
+# define D 100
+# define S 115
 
 /******************************************************************************\
- * COLOR MODES
+ * KEYS TO CHANGE COLOR MODES
 \******************************************************************************/
 
-# define ZERO 65438
-# define ONE 65436
-# define TWO 65433
-# define THREE 65435
+# define Y 121
+# define U 117
+# define I 105
+# define O 111
+# define P 112
 
 /******************************************************************************\
  * SHOW POSSIBLE PARAMS (MENU)
 \******************************************************************************/
 
+# define FIRST_HEADER1 "======================================="
+# define FIRST_HEADER2 "======================================\n"
 # define SEP		"================================="
 # define HEADER		" HELP MENU "
 # define ARG_HEADER	"=  ARGS  ="
+
 # define INTRO1		"How to explore the "
-# define INTRO2		"fantastic world of fractals:\n\n"
+# define INTRO2		"fantastic world of fractals:\n"
+
 # define M_ARG1		"Mandelbrot\t\t"
 # define M_ARG2		"-->\t./fractol mandelbrot\n"
+# define B_M_ARG2	"-->\t./fractol_bonus mandelbrot\n"
+
 # define J_ARGS1	"Julia\t\t\t"
-# define J_ARGS2	"-->\t./fractol julia [double] [double]\n\n"
+# define J_ARGS2	"-->\t./fractol julia [double] [double]\n"
+# define B_J_ARGS2	"-->\t./fractol_bonus julia [double] [double]\n"
+
+# define B_ARG1		"Burningship\t\t"
+# define B_ARG2		"-->\t./fractol burningship\n"
+# define B_B_ARG2	"-->\t./fractol_bonus burningship\n"
+
+# define MX_ARG1	"Mandelbox\t\t"
+# define MX_ARG2	"-->\t./fractol mandelbox\n\n"
+# define B_MX_ARG2	"-->\t./fractol_bonus mandelbox\n\n"
+
 # define EX_HEADER	" EXAMPLES "
 # define EXAMPLE_MSG "\n\nExamples of Julia's set:\n\n"
 
@@ -66,19 +88,17 @@
 \******************************************************************************/
 
 void	rainbow_txt(const char *str);
+void	rainbow_txt_nonl(const char *str);
 
 # define DEFAULT 0x38040E
 
-# define SALMON 0xFA8072
-# define ORANGE_RED 0xFF4500
-# define SEA_GREEN 0x2E8B57
-# define LIGHT_SEA_GREEN 0x20B2AA
-# define LAVENDER 0xE6E6FA
-# define INDIGO 0x4B0082
-# define DARK_MAGENTA 0x8B008B
-
-# define DEEP_PINK_PSYCHE 0xFF1493
 # define PINK_PSYCHE 0xFF83FA
+# define DEEP_PINK_PSYCHE 0xFF1493
+
+# define SALMON 0xFA8072
+# define LAVENDER 0xE6E6FA
+
+# define CANARY 0xFFE62D
 
 # define HOT_PINK 0xFF69B4
 

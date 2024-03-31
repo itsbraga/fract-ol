@@ -6,80 +6,91 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:50:40 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 20:01:24 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:33:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-static void	key_msg(int keycode)
+static void	__key_msg(int keycode)
 {
-	if (keycode == XK_Up)
-		ft_printf(BOLD GREEN "Up key pressed:\t\tmoving ↑\n" RESET);
-	else if (keycode == XK_Down)
-		ft_printf(BOLD BLUE "Down key pressed:\tmoving ↓\n" RESET);
-	else if (keycode == XK_Left)
-		ft_printf(BOLD YELLOW "Left key pressed:\tmoving ←\n" RESET);
-	else if (keycode == XK_Right)
-		ft_printf(BOLD ORANGE "Right key pressed:\tmoving →\n" RESET);
-	else if (keycode == ZERO)
-		ft_printf(BOLD "Changing color mode to:\tDEFAULT\n" RESET);
-	else if (keycode == ONE)
-		ft_printf(BOLD "Changing color mode to:\tx\n" RESET);
-	else if (keycode == TWO)
-		ft_printf(BOLD "Changing color mode to:\tPINK_PSYCHE\n" RESET);
-	else if (keycode == THREE)
-		ft_printf(BOLD "Changing color mode to:\tDEEP_PINK_PSYCHE\n" RESET);
+	if (keycode == XK_Up || keycode == W)
+		ft_printf(BOLD "UP Key:\t\tmoving ↑\n" RESET);
+	else if (keycode == XK_Down || keycode == S)
+		ft_printf(BOLD "DOWN Key:\tmoving ↓\n" RESET);
+	else if (keycode == XK_Left || keycode == A)
+		ft_printf(BOLD "LEFT Key:\tmoving ←\n" RESET);
+	else if (keycode == XK_Right || keycode == D)
+		ft_printf(BOLD "RIGHT Key:\tmoving →\n" RESET);
+	else if (keycode == Y)
+		ft_printf(BOLD ITAL ORANGE "New color mode:\tDEFAULT\n" RESET);
+	else if (keycode == U)
+		ft_printf(BOLD ITAL BLUE "New color mode:\tLAVENDER\n" RESET);
+	else if (keycode == I)
+		ft_printf(BOLD ITAL PINK "New color mode:\tPINK_PSYCHE\n" RESET);
+	else if (keycode == O)
+		ft_printf(BOLD ITAL PURPLE "New color mode:\tDEEP_PINK_PSYCHE\n" RESET);
+	else if (keycode == P)
+		ft_printf(BOLD ITAL YELLOW "New color mode:\tCANARY\n" RESET);
 }
 
-void	key_move(int keycode, double dist, t_fractal *f)
+/*	
+	Moves the view of the fractal by adjusting the complex number
+	edge values a certain distance in a certain direction given by
+	the choosen key	(keycode).
+*/
+void	key_move(int keycode, double dist, t_fractol *f)
 {
-	t_complex	c;
+	t_complex	center;
 
-	c.r = f->idx.xmax - f->idx.xmin;
-	c.i = f->idx.ymax - f->idx.ymin;
+	center.r = f->idx.xmax - f->idx.xmin;
+	center.i = f->idx.ymax - f->idx.ymin;
 	if (keycode == XK_Up)
 	{
-		f->idx.ymax += (c.i * dist);
-		f->idx.ymin += (c.i * dist);
+		f->idx.ymax += (center.i * dist);
+		f->idx.ymin += (center.i * dist);
 	}
 	else if (keycode == XK_Down)
 	{
-		f->idx.ymax -= (c.i * dist);
-		f->idx.ymin -= (c.i * dist);
+		f->idx.ymax -= (center.i * dist);
+		f->idx.ymin -= (center.i * dist);
 	}
 	else if (keycode == XK_Left)
 	{
-		f->idx.xmax -= (c.r * dist);
-		f->idx.xmin -= (c.r * dist);
+		f->idx.xmax += (center.r * dist);
+		f->idx.xmin += (center.r * dist);
 	}
 	else if (keycode == XK_Right)
 	{
-		f->idx.xmax += (c.r * dist);
-		f->idx.xmin += (c.r * dist);
+		f->idx.xmax -= (center.r * dist);
+		f->idx.xmin -= (center.r * dist);
 	}
-	key_msg(keycode);
 }
 
-int	key_hook2(int keycode, t_fractal *f)
+// printf("keycode: %d\n", keycode);
+int	key_hook2(int keycode, t_fractol *f)
 {
-	if (keycode == XK_Up)
+	if (keycode == XK_Escape)
+		clean(f);
+	if (keycode == XK_Up || keycode == W)
 		key_move(XK_Up, 0.1, f);
-	else if (keycode == XK_Down)
+	else if (keycode == XK_Down || keycode == S)
 		key_move(XK_Down, 0.1, f);
-	else if (keycode == XK_Left)
+	else if (keycode == XK_Left || keycode == A)
 		key_move(XK_Left, 0.1, f);
-	else if (keycode == XK_Right)
+	else if (keycode == XK_Right || keycode == D)
 		key_move(XK_Right, 0.1, f);
-	else if (keycode == ZERO)
+	else if (keycode == Y)
 		f->color = DEFAULT;
-	else if (keycode == ONE)
-		f->color = LIGHT_SEA_GREEN;
-	else if (keycode == TWO)
+	else if (keycode == U)
+		f->color = LAVENDER;
+	else if (keycode == I)
 		f->color = PINK_PSYCHE;
-	else if (keycode == THREE)
+	else if (keycode == O)
 		f->color = DEEP_PINK_PSYCHE;
-	key_msg(keycode);
+	else if (keycode == P)
+		f->color = CANARY;
+	__key_msg(keycode);
 	draw(f);
 	return (EXIT_SUCCESS);
 }

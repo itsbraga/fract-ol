@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:15:48 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 18:42:13 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:51:00 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_complex
 /*	x represents the real values (complex)	
 	y represents the imaginary ones			
 	
-	They are the image pixel coordinates in the range of -2 ; 2
+	They are the image pixel coordinates in the range of [-2.0;2.0]
 */
 typedef struct s_view
 {
@@ -77,13 +77,15 @@ typedef struct s_view
 	double	ymax;
 }				t_view;
 
-typedef enum e_fractaltype
+typedef enum e_fractoltype
 {
 	Mandelbrot = 1,
-	Julia = 2
+	Julia = 2,
+	Burningship = 3,
+	Mandelbox = 4
 }				t_ftype;
 
-typedef struct s_fractal
+typedef struct s_fractol
 {
 	void		*mlx;
 	void		*win;
@@ -92,9 +94,8 @@ typedef struct s_fractal
 	double		max_it;
 	t_complex	julia_c;
 	int			color;
-	int			esc_value;
 	t_ftype		type;
-}				t_fractal;
+}				t_fractol;
 
 /******************************************************************************\
  * MANDATORY
@@ -103,34 +104,41 @@ typedef struct s_fractal
 double		atodbl(char *s);
 bool		check_julia_args(char **argv);
 
-void		julia_examples(void);
 void		tutorial(void);
+void		julia_examples(void);
 void		help_menu(void);
 
-void		mouse_zoom(double zmult, t_fractal *f);
-void		init_events(t_fractal *f);
+void		mouse_zoom(double zmult, t_fractol *f);
+void		init_events(t_fractol *f);
 
 double		scale(double n, double new_min, double new_max, double old_max);
-void		init_img(t_fractal *f);
+void		init_img(t_fractol *f);
 
 t_complex	z_square(t_complex z);
 t_complex	sum(t_complex z, t_complex c);
 
-void		init_fractal(char **argv, t_fractal *f);
-int			draw(t_fractal *f);
-int			mandelbrot(t_fractal *f, int x, int y);
-int			julia(t_fractal *f, int x, int y);
+void		init_fractal(char **argv, t_fractol *f);
+int			draw(t_fractol *f);
 
-void		del_win(t_fractal *f);
-void		del_img(t_fractal *f);
-int			clean(t_fractal *f);
+int			mandelbrot(t_fractol *f, int x, int y);
+int			julia(t_fractol *f, int x, int y);
+
+void		del_win(t_fractol *f);
+void		del_img(t_fractol *f);
+int			clean(t_fractol *f);
 
 /******************************************************************************\
  * BONUS
 \******************************************************************************/
 
-int			key_hook2(int keycode, t_fractal *f);
-void		key_move(int keycode, double dist, t_fractal *f);
-void		init_events2(t_fractal *f);
+int			key_hook2(int keycode, t_fractol *f);
+void		key_move(int keycode, double dist, t_fractol *f);
+void		init_events2(t_fractol *f);
+
+void		julia_examples_bonus(void);
+void		help_menu_bonus(void);
+
+int			burningship(t_fractol *f, int x, int y);
+int			mandelbox(t_fractol *f, int x, int y);
 
 #endif

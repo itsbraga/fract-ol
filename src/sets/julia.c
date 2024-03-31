@@ -6,14 +6,21 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 20:35:54 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 17:26:01 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:51:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-/*	Its point of interest is z, and c is a constant	*/
-int	julia(t_fractal *f, int x, int y)
+/*	
+	Julia starts with pixel coordinates as z.r and z.i and adds another
+	complex number (julia_c.r and julia_c.i) every time it iterates.
+	
+	So, its point of interest is z, and c is a constant.
+
+	4 = hypothenuse, escape value
+*/
+int	julia(t_fractol *f, int x, int y)
 {
 	int			it;
 	t_complex	z;
@@ -28,7 +35,7 @@ int	julia(t_fractal *f, int x, int y)
 	it = 0;
 	while (it < f->max_it)
 	{
-		if (((z.r * z.r) + (z.i * z.i) > f->esc_value))
+		if (((z.r * z.r) + (z.i * z.i) > 4))
 			break ;
 		z = sum(z_square(z), c);
 		it++;

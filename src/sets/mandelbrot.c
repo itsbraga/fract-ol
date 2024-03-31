@@ -6,14 +6,28 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 20:36:46 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 17:26:01 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 22:51:55 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-/*	Its point of interest is c, and z = 0	*/
-int	mandelbrot(t_fractal *f, int x, int y)
+/*
+	Mandelbrot uses 0 as a starting value for z.r and z.i, and
+	adds pixel coordinates (c.r and c.i) every time it iterates.
+
+	Its formula iterates over complex numbers.
+	At every iteration, Z is squared.
+        z = z * z + c
+	
+	If the result tends toward infinity, that means it is not part of
+    the set.
+	If the result stays small over several iterations, the number
+    is part of the set.
+
+	4 = hypothenuse, escape value
+*/
+int	mandelbrot(t_fractol *f, int x, int y)
 {
 	int			it;
 	t_complex	z;
@@ -26,7 +40,7 @@ int	mandelbrot(t_fractal *f, int x, int y)
 	it = 0;
 	while (it < f->max_it)
 	{
-		if (((z.r * z.r) + (z.i * z.i) > f->esc_value))
+		if (((z.r * z.r) + (z.i * z.i) > 4))
 			break ;
 		z = sum(z_square(z), c);
 		it++;

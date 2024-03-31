@@ -38,7 +38,7 @@ MLX_X		=	$(addprefix $(MLX_PATH), libmlx.a)
 CC			=	cc
 
 CFLAGS		=	-Wall -Wextra -Werror -g -g3
-MLXFLAGS	=	-Lmlx -lX11 -lXext
+MLXFLAGS	=	-Lmlx -lX11 -lXext -lm
 DEPFLAGS	=	-MMD -MP
 MAKEFLAGS	+=	--no-print-directory
 
@@ -58,16 +58,16 @@ EXEC_DIR		=	exec/
 EXEC_FILES		=	equation.c init.c pixels.c
 
 SETS_DIR		=	sets/
-SETS_FILES		=	mandelbrot.c julia.c
+SETS_FILES		=	mandelbrot.c julia.c burningship.c mandelbox.c
 
 PARSING_DIR		=	parsing/
 PARSING_FILES	=	check_args.c parse_args.c
 
 TOOLS_DIR		=	tools/
-TOOLS_FILES		=	help.c utils.c
+TOOLS_FILES		=	help.c utils.c help_bonus.c
 
 BONUS_DIR		=	bonus/
-BONUS_FILES		=	mlx_events2.c mlx_events3.c
+BONUS_FILES		=	mlx_events2.c mlx_events3.c 
 
 
 #################################################################################
@@ -151,6 +151,8 @@ B_DEPS		=	$(addprefix $(B_OBJ_DIR), $(B_DEP_NAMES))
 #																				#
 #################################################################################
 
+all:	$(NAME)
+
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 				@mkdir -p $(dir $@)
 				@printf "$(BOLD)$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<          \r"
@@ -177,8 +179,6 @@ $(NAME): $(OBJS)
 #			@$(CC) -O3 $(CFLAGS) $(OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -L/usr/lib -o $(NAME)
 			@printf "$(RESET)$(PINK)You can now generate fractals. $(RESET)🌈\n\n"
 
-all:	$(NAME)
-
 clean:
 		@$(RM) $(OBJ_DIR)
 		@make clean -sC $(MLX_PATH) $(MAKEFLAGS)
@@ -189,7 +189,6 @@ fclean: clean
 			@$(RM) $(NAME) $(B_NAME)
 			@$(RM) $(MLX_X) $(LIBFT_X)
 			@find . -name ".build" -delete
-			@find . -name ".b_build" -delete
 			@find . -name ".DS_Store" -delete
 			@printf "$(BOLD)$(BLUE)[execs]: $(RESET)Full clean completed!\n\n"
 			@printf "\n. ⋅ ˚̣- : ✧ : – ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ₊° ˗ ˏ ˋ ♡ ˎˊ ˗ °₊ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ – : ✧ : -˚̣⋅ .\n\n\n"
@@ -226,24 +225,6 @@ $(B_NAME): $(B_OBJS)
 				@make -sC $(MLX_PATH) $(MAKEFLAGS)
 				@printf "\n\n. ⋅ ˚̣- : ✧ : – ⭒ ⊹ ⭒ ⊹ ⭒ ₊° ˗ ˏ ˋ ♡ ˎˊ ˗ °₊ ⭒ ⊹ ⭒ ⊹ ⭒ – : ✧ : -˚̣⋅ .\n\n"
 				@make -sC $(LIBFT_PATH) $(MAKEFLAGS)
-				@if [ ! -f .b_build ]; then \
-					printf "\t\t%s\n" \
-					"        @@                " \
-					"          @@              " \
-					"           @@             " \
-					"          @  @            " \
-					"         @    @           " \
-					"        @      @          " \
-					"       @        @         " \
-					"   #######;      @        " \
-					" ########_##;   #######   " \
-					"##########_##;########_## " \
-					"##########_##;#########_##" \
-					" ########_##;##########_##" \
-					"   #######;   ########_## " \
-					"                #######   "; \
-					printf "\n\n"; \
-					touch .b_build; fi
 				@printf "$(RESET)$(shell bash rainbow.sh "[FRACT-OL Bonus]"): "
 				@printf "$(RESET)$(BOLD)$(YELLOW)Compilation done!\n\n$(RESET)"
 				@$(CC) -O3 $(CFLAGS) $(B_OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -o $(B_NAME)

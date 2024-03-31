@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:50:28 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 18:26:53 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 23:11:50 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static bool	__is_only_double(char *argv)
 
 	i = 0;
 	has_decimal = false;
+	if (!argv[0] || argv[0] == '.' || argv[0] == ',')
+		return (false);
 	if (argv[i] == '-' && argv[i + 1])
 		i++;
 	while (argv[i] && (ft_isdigit(argv[i]) || argv[i] == '.' || argv[i] == ','))
@@ -57,16 +59,24 @@ static bool	__have_duplicate(char *argv)
 
 bool	check_julia_args(char **argv)
 {
+	const char	*mandatory = {"./fractol"};
+	const char	*bonus = {"./fractol_bonus"};
+
 	if (__is_only_double(argv[2]) == false
 		|| __is_only_double(argv[3]) == false)
 	{
-		write(2, "Error: Invalid argument. ", 25);
-		write(2, "Should be decimal.\n\n", 19);
+		ft_putstr_fd("Error: Invalid argument. Should be decimal.\n\n", 2);
 		ft_putstr_fd(BOLD EX_HEADER RESET EXAMPLE_MSG, 1);
-		julia_examples();
+		if (ft_strncmp(argv[0], mandatory, 9) == 0)
+			julia_examples();
+		else if (ft_strncmp(argv[0], bonus, 15) == 0)
+			julia_examples_bonus();
 		return (false);
 	}
 	if (__have_duplicate(argv[2]) == true || __have_duplicate(argv[3]) == true)
-		return (write(2, "Error: Contains duplicates.\n", 6), false);
+	{
+		ft_putstr_fd("Error: Contains duplicates.\n", 2);
+		return (false);
+	}
 	return (true);
 }

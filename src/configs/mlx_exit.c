@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:29:29 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/30 17:45:34 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/31 18:50:35 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
 
-void	del_win(t_fractal *f)
+void	del_win(t_fractol *f)
 {
 	ft_printf(BOLD YELLOW "\nWindow successfully destroyed.\n\n" RESET);
 	mlx_destroy_window(f->mlx, f->win);
@@ -21,7 +21,7 @@ void	del_win(t_fractal *f)
 	exit(EXIT_FAILURE);
 }
 
-void	del_img(t_fractal *f)
+void	del_img(t_fractol *f)
 {
 	ft_printf(BOLD YELLOW "\nImage and window successfully destroyed.\n\n");
 	ft_printf(RESET);
@@ -32,7 +32,7 @@ void	del_img(t_fractal *f)
 	exit(EXIT_FAILURE);
 }
 
-int	clean(t_fractal *f)
+int	clean(t_fractol *f)
 {
 	ft_printf(BOLD YELLOW "\nExited the program cleanly.\n\n" RESET);
 	mlx_destroy_image(f->mlx, f->img.img_ptr);
