@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:50:28 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 23:11:50 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:11:04 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ static bool	__is_only_double(char *argv)
 
 	i = 0;
 	has_decimal = false;
-	if (!argv[0] || argv[0] == '.' || argv[0] == ',')
+	if (argv[0] == 0 || argv[0] == '.' || argv[0] == ',')
 		return (false);
 	if (argv[i] == '-' && argv[i + 1])
 		i++;
+	if (ft_isdigit(argv[i]) == false && ft_isdigit(argv[i + 1]) == false)
+		return (false);
 	while (argv[i] && (ft_isdigit(argv[i]) || argv[i] == '.' || argv[i] == ','))
 	{
 		if (argv[i] == '.' || argv[i] == ',')

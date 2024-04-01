@@ -6,11 +6,34 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:40:44 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:46:00 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:11:49 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fractol.h"
+
+void	tutorial_bonus(void)
+{
+	ft_printf(BOLD FIRST_HEADER1 FIRST_HEADER2);
+	ft_printf("|									    |\n");
+	ft_printf("|				");
+	rainbow_txt_nonl("   FRACT'OL   ");
+	ft_printf("				    |\n");
+	ft_printf("|									    |\n");
+	ft_printf(BOLD FIRST_HEADER1 FIRST_HEADER2);
+	ft_printf("\n" BOLD SEP HEADER SEP RESET"\n\n\n");
+	ft_printf(BOLD BLUE "Available commands to use:\n" RESET);
+	ft_printf("\n⭒ %s", BOLD "Arrows to move:" RESET);
+	ft_printf("%s\n", "\t← ↑ → ↓  or  A W D S");
+	ft_printf("⭒ %s", BOLD "Mouse wheel:" RESET);
+	ft_printf("%s\n", "\t\tscroll up (zoom -)");
+	ft_printf("%s\n\n", "\t\t\tscroll down (zoom +)");
+	ft_printf("⭒ %s", BOLD "Keys to change color mode:" RESET);
+	ft_printf("%s\n%s\n", "\tY: Default", "\t\t\t\tU: Lavender/Blue");
+	ft_printf("%s\n", "\t\t\t\tI: Pink Psychedelic");
+	ft_printf("%s\n", "\t\t\t\tO: Deep Pink Psychedelic");
+	ft_printf("%s\n\n\n", "\t\t\t\tP: Yellow");
+}
 
 void	julia_examples_bonus(void)
 {

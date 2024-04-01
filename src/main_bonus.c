@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:20:09 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 23:13:32 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:12:03 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	if (argc != 2 && argc != 4)
 	{
 		ft_printf(BOLD RED "\nError: Invalid arguments.\n\n" RESET);
-		(tutorial(), help_menu_bonus(), exit(EXIT_FAILURE));
+		(tutorial_bonus(), help_menu_bonus(), exit(EXIT_FAILURE));
 	}
 	ft_memset(&f, 0, sizeof(t_fractol));
 	init_fractal(argv, &f);

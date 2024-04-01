@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 23:39:10 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:48:20 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:15:33 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,10 @@ void	tutorial(void)
 	ft_printf("|									    |\n");
 	ft_printf(BOLD FIRST_HEADER1 FIRST_HEADER2);
 	ft_printf("\n" BOLD SEP HEADER SEP RESET"\n\n\n");
-	ft_printf(BOLD BLUE "Available commands to use:\n" RESET);
-	ft_printf("\n⭒ %s", BOLD "Arrows to move:" RESET);
-	ft_printf("%s\n", "\t← ↑ → ↓  or  A W D S");
+	ft_printf(BOLD BLUE "Available commands to use:\n\n" RESET);
 	ft_printf("⭒ %s", BOLD "Mouse wheel:" RESET);
 	ft_printf("%s\n", "\t\tscroll up (zoom -)");
-	ft_printf("%s\n\n", "\t\t\tscroll down (zoom +)");
-	ft_printf("⭒ %s", BOLD "Keys to change color mode:" RESET);
-	ft_printf("%s\n%s\n", "\tY: Default", "\t\t\t\tU: Lavender/Blue");
-	ft_printf("%s\n", "\t\t\t\tI: Pink Psychedelic");
-	ft_printf("%s\n", "\t\t\t\tO: Deep Pink Psychedelic");
-	ft_printf("%s\n\n\n", "\t\t\t\tP: Yellow");
+	ft_printf("%s\n\n\n", "\t\t\tscroll down (zoom +)");
 }
 
 void	julia_examples(void)
@@ -64,9 +57,7 @@ void	help_menu(void)
 	ft_printf(BOLD SEP ARG_HEADER SEP RESET "\n\n\n");
 	(ft_printf(BOLD BLUE INTRO1 RESET BOLD), rainbow_txt(INTRO2));
 	ft_printf(BOLD PINK M_ARG1 RESET M_ARG2);
-	ft_printf(BOLD PINK J_ARGS1 RESET J_ARGS2);
-	ft_printf(BOLD PINK B_ARG1 RESET B_ARG2);
-	ft_printf(BOLD PINK MX_ARG1 RESET MX_ARG2 "\n");
+	ft_printf(BOLD PINK J_ARGS1 RESET J_ARGS2 "\n");
 	ft_printf(BOLD SEP EX_HEADER SEP RESET "\n\n\n");
 	ft_printf(ITAL YELLOW "(For Julia sets only)\n\n" RESET);
 	julia_examples();

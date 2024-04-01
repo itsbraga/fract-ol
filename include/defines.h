@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:11:51 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:45:34 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:15:23 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,13 @@
 # define B_M_ARG2	"-->\t./fractol_bonus mandelbrot\n"
 
 # define J_ARGS1	"Julia\t\t\t"
-# define J_ARGS2	"-->\t./fractol julia [double] [double]\n"
+# define J_ARGS2	"-->\t./fractol julia [double] [double]\n\n"
 # define B_J_ARGS2	"-->\t./fractol_bonus julia [double] [double]\n"
 
 # define B_ARG1		"Burningship\t\t"
-# define B_ARG2		"-->\t./fractol burningship\n"
 # define B_B_ARG2	"-->\t./fractol_bonus burningship\n"
 
 # define MX_ARG1	"Mandelbox\t\t"
-# define MX_ARG2	"-->\t./fractol mandelbox\n\n"
 # define B_MX_ARG2	"-->\t./fractol_bonus mandelbox\n\n"
 
 # define EX_HEADER	" EXAMPLES "

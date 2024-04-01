@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:15:48 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:51:00 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:12:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ int			key_hook2(int keycode, t_fractol *f);
 void		key_move(int keycode, double dist, t_fractol *f);
 void		init_events2(t_fractol *f);
 
+void		tutorial_bonus(void);
 void		julia_examples_bonus(void);
 void		help_menu_bonus(void);
 
