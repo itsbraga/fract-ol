@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 15:20:09 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/01 14:12:03 by annabrag         ###   ########.fr       */
+/*   Created: 2024/03/06 05:12:58 by annabrag          #+#    #+#             */
+/*   Updated: 2024/04/02 16:01:26 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../../include/fractol.h"
 
-static void	__errcontext_exit(t_fractol *f)
+static void	__clean_then_exit(t_fractol *f)
 {
-	perror("\nError");
 	clean(f);
 	exit(EXIT_FAILURE);
 }
@@ -26,7 +25,7 @@ int	main(int argc, char **argv)
 	if (argc != 2 && argc != 4)
 	{
 		ft_printf(BOLD RED "\nError: Invalid arguments.\n\n" RESET);
-		(tutorial_bonus(), help_menu_bonus(), exit(EXIT_FAILURE));
+		(tutorial(), help_menu(), exit(EXIT_FAILURE));
 	}
 	ft_memset(&f, 0, sizeof(t_fractol));
 	init_fractal(argv, &f);
@@ -34,11 +33,11 @@ int	main(int argc, char **argv)
 	if (argc == 4 && f.type == Julia)
 	{
 		if (check_julia_args(argv) == false)
-			__errcontext_exit(&f);
+			__clean_then_exit(&f);
 		f.julia_c.r = atodbl(argv[2]);
 		f.julia_c.i = atodbl(argv[3]);
 	}
 	mlx_loop_hook(f.mlx, &draw, &f);
-	init_events2(&f);
+	init_events(&f);
 	mlx_loop(f.mlx);
 }

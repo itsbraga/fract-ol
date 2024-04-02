@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:15:48 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/01 14:12:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:48:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ void		julia_examples(void);
 void		help_menu(void);
 
 void		mouse_zoom(double zmult, t_fractol *f);
+void		key_move(int keycode, double dist, t_fractol *f);
+int			key_hook(int keycode, t_fractol *f);
 void		init_events(t_fractol *f);
 
 double		scale(double n, double new_min, double new_max, double old_max);
@@ -122,24 +124,11 @@ int			draw(t_fractol *f);
 
 int			mandelbrot(t_fractol *f, int x, int y);
 int			julia(t_fractol *f, int x, int y);
+int			burningship(t_fractol *f, int x, int y);
+int			mandelbox(t_fractol *f, int x, int y);
 
 void		del_win(t_fractol *f);
 void		del_img(t_fractol *f);
 int			clean(t_fractol *f);
-
-/******************************************************************************\
- * BONUS
-\******************************************************************************/
-
-int			key_hook2(int keycode, t_fractol *f);
-void		key_move(int keycode, double dist, t_fractol *f);
-void		init_events2(t_fractol *f);
-
-void		tutorial_bonus(void);
-void		julia_examples_bonus(void);
-void		help_menu_bonus(void);
-
-int			burningship(t_fractol *f, int x, int y);
-int			mandelbox(t_fractol *f, int x, int y);
 
 #endif

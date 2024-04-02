@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:50:28 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/01 14:11:04 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:06:47 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static bool	__is_only_double(char *argv)
 	has_decimal = false;
 	if (argv[0] == 0 || argv[0] == '.' || argv[0] == ',')
 		return (false);
+	else if (ft_isdigit(argv[i]) == false && ft_isdigit(argv[i + 1]) == false)
+		return (false);
 	if (argv[i] == '-' && argv[i + 1])
 		i++;
-	if (ft_isdigit(argv[i]) == false && ft_isdigit(argv[i + 1]) == false)
-		return (false);
 	while (argv[i] && (ft_isdigit(argv[i]) || argv[i] == '.' || argv[i] == ','))
 	{
 		if (argv[i] == '.' || argv[i] == ',')
@@ -59,25 +59,21 @@ static bool	__have_duplicate(char *argv)
 	return (false);
 }
 
+// const char	*mandatory = {"./fractol"};
+// const char	*bonus = {"./fractol_bonus"};
 bool	check_julia_args(char **argv)
 {
-	const char	*mandatory = {"./fractol"};
-	const char	*bonus = {"./fractol_bonus"};
-
 	if (__is_only_double(argv[2]) == false
 		|| __is_only_double(argv[3]) == false)
 	{
-		ft_putstr_fd("Error: Invalid argument. Should be decimal.\n\n", 2);
-		ft_putstr_fd(BOLD EX_HEADER RESET EXAMPLE_MSG, 1);
-		if (ft_strncmp(argv[0], mandatory, 9) == 0)
-			julia_examples();
-		else if (ft_strncmp(argv[0], bonus, 15) == 0)
-			julia_examples_bonus();
+		perror("\nError, invalid arguments");
+		write(1, ITAL ORANGE EXAMPLE_MSG RESET, 48);
+		julia_examples();
 		return (false);
 	}
 	if (__have_duplicate(argv[2]) == true || __have_duplicate(argv[3]) == true)
 	{
-		ft_putstr_fd("Error: Contains duplicates.\n", 2);
+		perror("\nError, contains duplicates");
 		return (false);
 	}
 	return (true);

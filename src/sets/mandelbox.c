@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 21:37:07 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:51:44 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:52:10 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ int	mandelbox(t_fractol *f, int x, int y)
 	t_complex	view;
 	t_complex	c;
 
-	it = 0;
-	magnitude = 0;
+	ft_memset(&view, 0, sizeof(t_complex));
+	ft_memset(&c, 0, sizeof(t_complex));
 	view.r = c.r;
 	view.i = c.i;
 	c.r = scale(x, f->idx.xmin, f->idx.xmax, WIN_WIDTH);
 	c.i = scale(y, f->idx.ymax, f->idx.ymin, WIN_HEIGHT);
+	it = 0;
+	magnitude = 0;
 	while (it < f->max_it)
 	{
 		view.r = 1 * box_fold(view.r);

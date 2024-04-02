@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:11:51 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/01 14:15:23 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:43:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,15 @@
 
 # define M_ARG1		"Mandelbrot\t\t"
 # define M_ARG2		"-->\t./fractol mandelbrot\n"
-# define B_M_ARG2	"-->\t./fractol_bonus mandelbrot\n"
 
 # define J_ARGS1	"Julia\t\t\t"
-# define J_ARGS2	"-->\t./fractol julia [double] [double]\n\n"
-# define B_J_ARGS2	"-->\t./fractol_bonus julia [double] [double]\n"
+# define J_ARGS2	"-->\t./fractol julia [double] [double]\n"
 
 # define B_ARG1		"Burningship\t\t"
-# define B_B_ARG2	"-->\t./fractol_bonus burningship\n"
+# define B_ARG2		"-->\t./fractol burningship\n"
 
 # define MX_ARG1	"Mandelbox\t\t"
-# define B_MX_ARG2	"-->\t./fractol_bonus mandelbox\n\n"
+# define MX_ARG2	"-->\t./fractol mandelbox\n\n"
 
 # define EX_HEADER	" EXAMPLES "
 # define EXAMPLE_MSG "\n\nExamples of Julia's set:\n\n"
@@ -92,12 +90,11 @@ void	rainbow_txt_nonl(const char *str);
 
 # define PINK_PSYCHE 0xFF83FA
 # define DEEP_PINK_PSYCHE 0xFF1493
+# define HOT_PINK 0xFF69B4
 
 # define SALMON 0xFA8072
 # define LAVENDER 0xE6E6FA
 
 # define CANARY 0xFFE62D
-
-# define HOT_PINK 0xFF69B4
 
 #endif

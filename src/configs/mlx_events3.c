@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:00:21 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:34:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:53:13 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	__mouse_hook2(int button, int x, int y, t_fractol *f)
 
 void	init_events2(t_fractol *f)
 {
-	mlx_key_hook(f->win, key_hook2, f);
+	mlx_key_hook(f->win, key_hook, f);
 	mlx_mouse_hook(f->win, __mouse_hook2, f);
 	mlx_hook(f->win, 17, (1L << 17), clean, f);
 }

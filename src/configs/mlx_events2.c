@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:50:40 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:33:42 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/02 15:48:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	key_move(int keycode, double dist, t_fractol *f)
 }
 
 // printf("keycode: %d\n", keycode);
-int	key_hook2(int keycode, t_fractol *f)
+int	key_hook(int keycode, t_fractol *f)
 {
 	if (keycode == XK_Escape)
 		clean(f);
