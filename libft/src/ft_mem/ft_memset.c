@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:10:10 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/17 21:44:43 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:23:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 /*	Description :
 	Cette fonction permet de remplir une zone mémoire,

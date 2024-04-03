@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 20:36:46 by annabrag          #+#    #+#             */
-/*   Updated: 2024/03/31 22:51:55 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:48:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/fractol.h"
+#include "fractol.h"
 
 /*
 	Mandelbrot uses 0 as a starting value for z.r and z.i, and

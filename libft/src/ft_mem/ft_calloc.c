@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:27:04 by annabrag          #+#    #+#             */
-/*   Updated: 2023/12/07 19:44:04 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:23:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 /*	Description:
 	Cette fonction alloue un bloc de mémoire en initialisant

@@ -6,12 +6,12 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 13:41:01 by panther           #+#    #+#             */
-/*   Updated: 2023/11/24 17:26:40 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:24:00 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_printf.h"
-#include "../../include/libft.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_puthex(unsigned int n, const char *format)
 {

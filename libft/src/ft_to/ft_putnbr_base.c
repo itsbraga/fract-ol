@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:43:51 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/17 18:35:18 by panther          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:52:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	ft_strlen2(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int	base_check(char *base)
 	int	j;
 
 	i = 0;
-	if (ft_strlen2(base) < 2)
+	if (ft_strlen(base) < 2)
 		return (0);
 	while (base[i])
 	{
@@ -59,7 +59,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	int		len_b;
 
 	n = nbr;
-	len_b = ft_strlen2(base);
+	len_b = ft_strlen(base);
 	if (base_check(base) == 1)
 	{
 		if (n < 0)

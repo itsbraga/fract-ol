@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 18:50:28 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/02 16:06:47 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:48:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/fractol.h"
+#include "fractol.h"
 
 static bool	__is_only_double(char *argv)
 {

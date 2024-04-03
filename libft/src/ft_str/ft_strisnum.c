@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 19:23:06 by annabrag          #+#    #+#             */
-/*   Updated: 2023/12/13 20:45:16 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:23:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 /*	Description:
 	Cette fonction vérifie si la chaîne de caractères 's'

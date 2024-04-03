@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 17:00:21 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/02 15:53:13 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:48:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/fractol.h"
+#include "fractol.h"
 
 static int	__mouse_hook2(int button, int x, int y, t_fractol *f)
 {

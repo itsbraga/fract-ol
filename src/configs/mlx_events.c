@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:02:44 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/02 15:50:00 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:48:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/fractol.h"
+#include "fractol.h"
 
 /*	
 	Zooms the view of the fractal in or out by adjusting the complex

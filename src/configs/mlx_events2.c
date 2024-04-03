@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:50:40 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/02 15:48:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:48:36 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/fractol.h"
+#include "fractol.h"
 
 static void	__key_msg(int keycode)
 {

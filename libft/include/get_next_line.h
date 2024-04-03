@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:40:54 by panther           #+#    #+#             */
-/*   Updated: 2024/02/16 20:55:30 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/03/06 00:21:43 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "colors.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 9
+#  define BUFFER_SIZE 6
 # endif
 
 /*

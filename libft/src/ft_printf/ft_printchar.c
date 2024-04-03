@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 17:20:03 by panther           #+#    #+#             */
-/*   Updated: 2023/11/24 17:25:56 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:24:00 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_printchar(int c)
 {

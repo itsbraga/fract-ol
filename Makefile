@@ -27,6 +27,7 @@ LIBFT_PATH	=	libft/
 LIBFT_X		=	$(addprefix $(LIBFT_PATH), libft.a)
 MLX_PATH	=	mlx/
 MLX_X		=	$(addprefix $(MLX_PATH), libmlx.a)
+INC			=	include/
 
 CC			=	cc
 
@@ -97,7 +98,7 @@ all:	$(NAME)
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 				@mkdir -p $(dir $@)
 				@printf "$(BOLD)$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<          \r"
-				@$(CC) $(DEPFLAGS) $(CFLAGS) -c $< -o $@
+				@$(CC) $(DEPFLAGS) $(CFLAGS) $(INC) -c $< -o $@
 #				@$(CC) $(DEPFLAGS) $(CFLAGS) -I/usr/include -Imlx -c $< -o $@
 -include $(DEPS)
 
@@ -116,7 +117,7 @@ $(NAME): $(OBJS)
 				touch .build; fi
 			@printf "$(RESET)$(shell bash rainbow.sh "[FRACT-OL]"): "
 			@printf "$(RESET)$(BOLD)$(YELLOW)Compilation done!\n\n$(RESET)"
-			@$(CC) $(CFLAGS) $(OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -o $(NAME)
+			@$(CC) -O3 $(CFLAGS) $(INC) $(OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -o $(NAME)
 #			@$(CC) -O3 $(CFLAGS) $(OBJS) -Inc $(LIBFT_X) -Inc $(MLX_X) $(MLXFLAGS) -L/usr/lib -o $(NAME)
 			@printf "$(RESET)$(PINK)You can now generate fractals. $(RESET)🌈\n\n"
 

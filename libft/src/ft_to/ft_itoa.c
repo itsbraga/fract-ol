@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 12:08:39 by annabrag          #+#    #+#             */
-/*   Updated: 2023/11/23 02:36:47 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/04/03 22:23:28 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 /*	Description:
 	Cette fonction convertit le nombre entier 'n' en une chaîne de caractères
@@ -42,29 +42,29 @@ static int	len_digit(long n)
 
 char	*ft_itoa(int n)
 {
-	char	*s;
+	char	*res;
 	long	nb;
 	int		len_d;
 
 	len_d = len_digit(n);
 	nb = n;
-	s = (char *)malloc(sizeof(*s) * (len_d + 1));
-	if (!s)
+	res = malloc(sizeof(*res) * (len_d + 1));
+	if (!res)
 		return (NULL);
-	s[len_d] = '\0';
+	res[len_d] = '\0';
 	if (nb == 0)
-		s[0] = 48;
+		res[0] = 48;
 	if (nb < 0)
 	{
-		s[0] = '-';
+		res[0] = '-';
 		nb = -nb;
 	}
 	while (nb)
 	{
-		s[--len_d] = nb % 10 + 48;
+		res[--len_d] = nb % 10 + 48;
 		nb /= 10;
 	}
-	return (s);
+	return (res);
 }
 
 /*int main(int argc, char **argv)
