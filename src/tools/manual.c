@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manual.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:40:44 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/03 22:48:36 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/08 22:38:03 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,16 @@ void	tutorial(void)
 
 void	julia_examples(void)
 {
-	ft_printf(BOLD "Elephant Valley" RESET);
-	ft_printf("\t\t-->\t./fractol_bonus julia 0.3 0.0\n");
-	ft_printf(BOLD "Sea Horse Valley" RESET);
-	ft_printf("\t-->\t./fractol_bonus julia -0.75 0.1\n");
-	ft_printf(BOLD "Mystic Dragon" RESET);
-	ft_printf("\t\t-->\t./fractol_bonus julia -0.8 0.156\n");
-	ft_printf(BOLD "Winter Season" RESET);
-	ft_printf("\t\t-->\t./fractol_bonus julia -0.4 0.6\n");
-	ft_printf(BOLD "Spirals" RESET);
-	ft_printf("\t\t\t-->\t./fractol_bonus julia 0.355 0.355\n");
-	ft_printf(BOLD "Frozen Spirals" RESET);
-	ft_printf("\t\t-->\t./fractol_bonus julia -0.54 0.54\n");
-	ft_printf(BOLD "BPM" RESET);
-	ft_printf("\t\t\t-->\t./fractol_bonus julia -1.476 0.0\n");
-	ft_printf(BOLD "Flowers" RESET);
-	ft_printf("\t\t\t-->\t./fractol_bonus julia -0.52 0.57\n");
-	ft_printf(BOLD "Multiverse" RESET);
-	ft_printf("\t\t-->\t./fractol_bonus julia 0.285 0.013\n");
-	ft_printf(BOLD "Misshapen Bird" RESET);
-	ft_printf("\t\t-->\t./fractol_bonus julia 0.38 -0.12\n");
+	ft_printf("%s\t\t%s\n", BOLD "Elephant Valley", EXAMPLE(0.3, 0.0));
+	ft_printf("%s\t%s\n", BOLD "Sea Horse Valley", EXAMPLE(-0.75, 0.1));
+	ft_printf("%s\t\t%s\n", BOLD "Mystic Dragon", EXAMPLE(-0.8, 0.156));
+	ft_printf("%s\t\t%s\n", BOLD "Winter Season", EXAMPLE(-0.4, 0.6));
+	ft_printf("%s\t\t\t%s\n", BOLD "Spirals", EXAMPLE(0.355, 0.355));
+	ft_printf("%s\t\t%s\n", BOLD "Frozen Spirals", EXAMPLE(-0.54, 0.54));
+	ft_printf("%s\t\t\t%s\n", BOLD "BPM", EXAMPLE(-1.476, 0.0));
+	ft_printf("%s\t\t\t%s\n", BOLD "Flowers", EXAMPLE(-0.52, 0.57));
+	ft_printf("%s\t\t%s\n", BOLD "Multiverse", EXAMPLE(0.285, 0.013));
+	ft_printf("%s\t\t%s\n", BOLD "Misshapen Bird", EXAMPLE(0.38, -0.12));
 }
 
 void	help_menu(void)

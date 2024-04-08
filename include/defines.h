@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:11:51 by annabrag          #+#    #+#             */
-/*   Updated: 2024/04/02 16:10:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/04/08 22:36:05 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 
 # define FIRST_HEADER1 "======================================="
 # define FIRST_HEADER2 "======================================\n"
+
 # define SEP		"================================="
 # define HEADER		" HELP MENU "
 # define ARG_HEADER	"=  ARGS  ="
@@ -77,7 +78,7 @@
 # define EX_HEADER	" EXAMPLES "
 # define EXAMPLE_MSG "\n\nExamples of Julia's set:\n\n"
 
-// # define EXAMPLE(x1, x2) RESET "-->\t./fractol julia " #x1 " " #x2
+# define EXAMPLE(x1, x2) RESET "-->\t./fractol julia " #x1 " " #x2
 
 /******************************************************************************\
  * COLORS
